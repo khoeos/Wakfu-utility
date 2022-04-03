@@ -5,12 +5,11 @@ import Index from './Pages/index'
 function App() {
   return (
     <Router>
-      <header className="flex gap-2">
-        <Link to="/">Home</Link>
-      </header>
-      <Routes>
-        <Route path="/" element={<Index />} />
-      </Routes>
+      <div className={'min-h-screen w-screen'}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+        </Routes>
+      </div>
     </Router>
   )
 }
