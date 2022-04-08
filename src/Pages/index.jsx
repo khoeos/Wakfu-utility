@@ -52,7 +52,11 @@ export default function Index() {
         <ul className={'flex flex-col gap-2 md:grid md:grid-cols-3'}>
           <li>- Catégories personalisées</li>
           <li>- Ajouter des taches par défaut</li>
+
           <li>- Ajout du bonus de l'almanax</li>
+          <li className={'col-span-2'}>
+            - Ajouter un bouton pour setup des quetes chasseur pour la semaine
+          </li>
           <li>- Ajout du nom du boss mod'ule</li>
           <li>- Ajout d'une zone de note</li>
           <li>- Personalisation des couleurs</li>

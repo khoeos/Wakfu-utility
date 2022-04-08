@@ -1,20 +1,15 @@
-# Vite Template React
+# Wak'Utility
 
 Based on my own [Vite React Template](https://github.com/khoeos/Vite-React-Template)
 
-## Features
+## Stack
 
 - [Vite](https://vitejs.dev), [React](https://reactjs.org)
 - [TailwindCSS](https://tailwindcss.com/), [Heroicon](https://heroicons.com/) and [HeadlessUI](https://headlessui.dev/) for [TailwindUi](https://tailwindui.com/)
 - [React Router](https://reactrouter.com/) for routing and SPA
-- [Redux](hhttps://redux.js.org/) with [Redux Toolkit](https://redux-toolkit.js.org/) for state management
-- [Axios](https://github.com/axios/axios) for request
+- [Redux](hhttps://redux.js.org/) for state management
+- [Axios](https://github.com/axios/axios) for request (not used yet)
 - Aliases management
-
-## Folder Structure
-
-- No configuration or complicated folder structures, just the files you need to build your app:
-- Basic examples for Router, queries and aliases
 
 ## Development
 
