@@ -1,55 +1,71 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom'
+import { getTasksNbr } from '../../redux/tasks/tasks.selector'
+
 import classNames from '../../utility/classNames'
 
-export default function ProgressBar() {
+function ProgressBar({ tasksNbr }) {
+  console.log(tasksNbr)
   return (
     <div>
       <h2
         className={
-          'bg-gray-50 py-8 text-center text-xl font-bold text-gray-800'
+          'bg-gray-900 py-8 text-center text-xl font-bold text-gray-200'
         }
       >
         Taches à accomplir
       </h2>
       <div className={'flex w-full'}>
         <ProgressPart
-          color="cyan"
-          value={1}
-          max={2}
+          cat="day"
+          value={tasksNbr.daily[0]}
+          max={tasksNbr.daily[1]}
           active
           position={0}
           label="Aujourd'hui"
+          link={'/day'}
         />
         <ProgressPart
-          color="amber"
-          value={1}
-          max={2}
+          cat="week"
+          value={tasksNbr.weekly[0]}
+          max={tasksNbr.weekly[1]}
           active={false}
           position={1}
           label="Cette semaine"
+          link={'/week'}
         />
         <ProgressPart
-          color="emerald"
-          value={1}
-          max={2}
+          cat="month"
+          value={tasksNbr.monthly[0]}
+          max={tasksNbr.monthly[1]}
           active={false}
           position={2}
           label="Ce mois-ci"
+          link={'/month'}
         />
       </div>
     </div>
   )
 }
 
-function ProgressPart({ color, active, position, value, max, label }) {
+function ProgressPart({ cat, position, value, max, label, link }) {
   const percent = (100 * value) / max
   return (
     <div
       className={classNames(
-        active ? 'border-b-4 border-cyan-600' : null,
-        color === 'cyan' ? 'bg-cyan-100' : null,
-        color === 'amber' ? 'bg-orange-100' : null,
-        color === 'emerald' ? 'bg-emerald-100' : null,
+        useLocation().pathname === link && cat === 'day'
+          ? 'border-b-4 border-sky-200'
+          : null,
+        useLocation().pathname === link && cat === 'week'
+          ? 'border-b-4 border-violet-200'
+          : null,
+        useLocation().pathname === link && cat === 'month'
+          ? 'border-b-4 border-emerald-200'
+          : null,
+        cat === 'day' ? 'bg-sky-900' : null,
+        cat === 'week' ? 'bg-violet-900' : null,
+        cat === 'month' ? 'bg-emerald-900' : null,
         position === 0 ? 'pl-8' : null,
         position === 2 ? 'pr-8' : null,
         'py-4'
@@ -58,9 +74,9 @@ function ProgressPart({ color, active, position, value, max, label }) {
     >
       <div
         className={classNames(
-          color === 'cyan' ? 'bg-cyan-200' : null,
-          color === 'amber' ? 'bg-orange-200' : null,
-          color === 'emerald' ? 'bg-emerald-200' : null,
+          cat === 'day' ? 'bg-sky-200' : null,
+          cat === 'week' ? 'bg-violet-200' : null,
+          cat === 'month' ? 'bg-emerald-200' : null,
           position === 0 ? 'rounded-l-full' : null,
           position === 2 ? 'rounded-r-full' : null,
           'relative w-full'
@@ -68,16 +84,16 @@ function ProgressPart({ color, active, position, value, max, label }) {
       >
         <div
           className={classNames(
-            color === 'cyan' ? 'bg-cyan-300' : null,
-            color === 'amber' ? 'bg-orange-300' : null,
-            color === 'emerald' ? 'bg-emerald-300' : null,
+            cat === 'day' ? 'bg-sky-400' : null,
+            cat === 'week' ? 'bg-violet-400' : null,
+            cat === 'month' ? 'bg-emerald-400' : null,
             position === 0 ? 'rounded-l-full' : null,
             position === 0 && percent < 100 ? 'rounded-full' : null,
             position === 1 && percent < 100 ? 'rounded-r-full' : null,
             position === 2 ? 'rounded-r-full' : null,
             'relative flex justify-center px-2'
           )}
-          style={{ width: `${percent}%` }}
+          style={{ width: `${percent}%`, minWidth: '15%' }}
         >
           <div>
             {value}/{max}
@@ -85,23 +101,30 @@ function ProgressPart({ color, active, position, value, max, label }) {
         </div>
       </div>
       <div className={'flex justify-center'}>
-        <button
+        <Link
+          to={link}
           className={classNames(
-            color === 'cyan'
-              ? 'bg-cyan-600 hover:bg-cyan-700 focus:ring-cyan-500'
+            cat === 'day'
+              ? 'bg-sky-600 hover:bg-sky-700 focus:ring-sky-500'
               : null,
-            color === 'amber'
-              ? 'bg-amber-600 hover:bg-amber-700 focus:ring-amber-500'
+            cat === 'week'
+              ? 'bg-violet-600 hover:bg-violet-700 focus:ring-violet-500'
               : null,
-            color === 'emerald'
+            cat === 'month'
               ? 'bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-500'
               : null,
             'mt-4 inline-flex items-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-white shadow-sm  focus:outline-none focus:ring-2  focus:ring-offset-2'
           )}
         >
           {label}
-        </button>
+        </Link>
       </div>
     </div>
   )
 }
+
+const mapStateToProps = state => ({
+  tasksNbr: getTasksNbr(state),
+})
+
+export default connect(mapStateToProps)(ProgressBar)

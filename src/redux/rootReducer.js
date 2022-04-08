@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
-import visibilityFilter from './todo/todoVisibility.reducer'
-import todos from './todo/todo.reducer'
+import tasks from './tasks/tasks.reducer'
+import modal from './modal/modal.reducer'
+import storage from './data/data.reducer'
 
 export default combineReducers({
-  todos,
-  visibilityFilter,
+  tasks,
+  modal,
+  storage,
 })

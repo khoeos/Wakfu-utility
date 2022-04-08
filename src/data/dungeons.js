@@ -2,6 +2,9 @@
 
 const DungeonData = {}
 
+DungeonData.levels = [
+  12, 21, 36, 51, 66, 81, 96, 111, 126, 141, 156, 171, 186, 201, 216,
+]
 DungeonData.statis = [1, 11, 21, 31, 41, 51]
 DungeonData.Dungeons = {
   12: ['Pâturage des bouftous', 'Le tofulailler', 'Larventura'],
@@ -10,11 +13,11 @@ DungeonData.Dungeons = {
   51: [
     'Antre de la perlouze noire',
     "l'antre oubliée",
-    'Donjon Bwork',
+    'Bwork',
     'La skouale sèche',
-    'Donjon Mollusky',
+    'Mollusky',
     'Kokolantha',
-    'château des cwabes',
+    'Château des cwabes',
   ],
   66: [
     'Les Ratacombes',
