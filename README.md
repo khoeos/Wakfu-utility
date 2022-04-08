@@ -1,6 +1,6 @@
 # Vite Template React
 
-A [Vite](https://vitejs.dev) + [React](https://reactjs.org) starter template.
+Based on my own [Vite React Template](https://github.com/khoeos/Vite-React-Template)
 
 ## Features
 

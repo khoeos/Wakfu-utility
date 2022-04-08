@@ -8,7 +8,7 @@ export const addCustomTask = (task, taskType) => {
     taskType === constants.daily
       ? categories.daily.custom
       : taskType === constants.weekly
-      ? categories.monthly.custom
+      ? categories.weekly.custom
       : taskType === constants.monthly
       ? categories.monthly.custom
       : 'ERROR'
