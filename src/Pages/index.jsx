@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Index() {
   return (
-    <div className={'min-h-screen  bg-sky-900 px-16 py-8 text-sky-100'}>
+    <div className={'min-h-screen  bg-sky-900 px-6 py-8 text-sky-100 sm:px-16'}>
       <div className={'space-y-6'}>
         <div className={'space-y-1'}>
           <h1 className={'font-white mb-3 text-3xl font-semibold'}>

@@ -113,7 +113,7 @@ function ProgressPart({ cat, position, value, max, label, link }) {
             cat === 'month'
               ? 'bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-500'
               : null,
-            'mt-4 inline-flex items-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-white shadow-sm  focus:outline-none focus:ring-2  focus:ring-offset-2'
+            'mt-4 inline-flex items-center rounded-md border border-transparent  px-4 py-2 text-center text-sm font-medium text-white  shadow-sm focus:outline-none  focus:ring-2 focus:ring-offset-2'
           )}
         >
           {label}
