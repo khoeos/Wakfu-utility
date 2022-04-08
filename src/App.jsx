@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { InformationCircleIcon, XIcon } from '@heroicons/react/outline'
 import Index from './Pages/index'
@@ -8,7 +9,7 @@ import MonthlyPage from './Pages/MonthlyPage'
 import WeeklyPage from './Pages/WeeklyPage'
 import DailyPage from './Pages/DailyPage'
 import { checkUpdate } from './redux/tasks/tasks.actions'
-import ConfigModal from './Components/modal/ConfigModal'
+import Modal from './Components/modal/Modal'
 
 function App({ checkUpdate, storage, closeBanner }) {
   useEffect(() => checkUpdate())
@@ -59,7 +60,12 @@ function App({ checkUpdate, storage, closeBanner }) {
           <Route path="/month" element={<MonthlyPage />} />
         </Routes>
       </div>
-      <ConfigModal />
+      <div
+        className={'flex justify-center bg-gray-900 py-0.5 text-xs text-white'}
+      >
+        <span className={'opacity-20'}>V.1.0.0 - by Khoéos</span>
+      </div>
+      <Modal />
     </Router>
   )
 }

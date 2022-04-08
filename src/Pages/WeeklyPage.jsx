@@ -11,9 +11,6 @@ import constants, { categories } from '../redux/tasks/task.constants'
 import { regroupChild } from '../redux/tasks/tasks.utils'
 
 function WeeklyPage({ weeklyTask }) {
-  // const buTasks = weeklyTask.filter(
-  //   task => task.category === categories.weekly.bu
-  // )
   const buTasks = regroupChild(
     weeklyTask.filter(task => task.category === categories.weekly.bu),
     categories.daily.hunter
@@ -23,7 +20,7 @@ function WeeklyPage({ weeklyTask }) {
   )
   return (
     <div className={'min-h-screen bg-violet-900'}>
-      <div className={'grid grid-cols-1 gap-8 p-4'}>
+      <div className={'flex flex-col gap-8 p-4'}>
         <TaskList
           name={'Boss Ultimes'}
           cols={2}

@@ -93,7 +93,7 @@ function ProgressPart({ cat, position, value, max, label, link }) {
             position === 2 ? 'rounded-r-full' : null,
             'relative flex justify-center px-2'
           )}
-          style={{ width: `${percent}%`, minWidth: '15%' }}
+          style={{ width: `${percent}%`, minWidth: '45px' }}
         >
           <div>
             {value}/{max}

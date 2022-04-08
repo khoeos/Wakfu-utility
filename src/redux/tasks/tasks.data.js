@@ -1,64 +1,6 @@
 import constants, { categories } from './task.constants'
 import DungeonData from '../../data/dungeons'
 
-function olddailyHunter() {
-  const hunterQuests = []
-  let i = 1
-
-  Object.entries(DungeonData.Dungeons).forEach(([key, value]) => {
-    const data = {
-      type: constants.daily,
-      category: categories.daily.hunter,
-      id: `${categories.daily.hunter}-${i}`,
-      name: key,
-      visible: true,
-      subTasks: [
-        {
-          type: constants.daily,
-          category: categories.daily.hunter,
-          child: true,
-          id: `${categories.daily.hunter}-${i}-0`,
-          parent: `${categories.daily.hunter}-${i}`,
-          name: `Donjon du jour lv.${key}`,
-          visible: true,
-          completed: false,
-          lastUpdated: null,
-        },
-      ],
-    }
-    let index = 1
-    value.forEach(dj => {
-      data.subTasks.push({
-        type: constants.daily,
-        category: categories.daily.hunter,
-        id: `${categories.daily.hunter}-${i}-${index}`,
-        parent: `${categories.daily.hunter}-${i}`,
-        child: true,
-        name: `Semence : ${dj}`,
-        visible: true,
-        completed: false,
-        lastUpdated: null,
-      })
-      index++
-      data.subTasks.push({
-        type: constants.daily,
-        category: categories.daily.hunter,
-        child: true,
-        parent: `${categories.daily.hunter}-${i}`,
-        id: `${categories.daily.hunter}-${i}-${index}`,
-        name: `Drop : ${dj}`,
-        visible: true,
-        completed: false,
-        lastUpdated: null,
-      })
-      index++
-    })
-    i++
-    hunterQuests.push(data)
-  })
-  return hunterQuests
-}
-
 function dailyHunter() {
   const hunterQuests = []
   let i = 1

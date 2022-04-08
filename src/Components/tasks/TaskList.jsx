@@ -13,6 +13,7 @@ function TaskList({
   custom,
   toggleModal,
 }) {
+  // eslint-disable-next-line no-unused-vars
   const loadClasses = 'grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4'
   return (
     <div className={className}>
@@ -32,7 +33,11 @@ function TaskList({
 
         {name}
       </h2>
-      <div className={`grid grid-cols-${cols} gap-y-2 gap-x-8`}>{children}</div>
+      <div
+        className={`flex flex-col md:grid md:grid-cols-${cols} gap-y-2 gap-x-8`}
+      >
+        {children}
+      </div>
     </div>
   )
 }

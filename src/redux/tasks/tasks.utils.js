@@ -1,4 +1,7 @@
-import constants, { categories } from './task.constants'
+/* eslint-disable prefer-const */
+/* eslint-disable no-param-reassign */
+/* eslint-disable array-callback-return */
+import constants from './task.constants'
 
 export function isDateToday(date) {
   const todayObj = new Date()
@@ -25,7 +28,7 @@ export function isThisMonth(date) {
 }
 
 export function checkToUpdate(tasks) {
-  return [...tasks].map(item => {
+  const edited = [...tasks].map(item => {
     switch (item.type) {
       case constants.daily:
         return item.lastUpdated && isDateToday(new Date(item.lastUpdated))
@@ -44,6 +47,8 @@ export function checkToUpdate(tasks) {
         break
     }
   })
+  console.log(edited)
+  return edited
 }
 
 export function regroupChild(list) {

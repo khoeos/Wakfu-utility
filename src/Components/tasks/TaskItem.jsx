@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { TrashIcon, EyeOffIcon } from '@heroicons/react/outline'
@@ -18,7 +17,12 @@ function TaskItem({ task, deleteTask, toggleVisibility, toggleTask }) {
   }
   return (
     <div className={'relative cursor-pointer'}>
-      <div className={'absolute right-0 top-0 z-10 mt-1 text-gray-100'}>
+      <div
+        className={classNames(
+          task.completed ? 'opacity-25' : null,
+          'absolute right-0 top-0 z-10 mt-1 text-gray-100'
+        )}
+      >
         {[
           categories.daily.custom,
           categories.weekly.custom,
@@ -40,6 +44,8 @@ function TaskItem({ task, deleteTask, toggleVisibility, toggleTask }) {
         )}
       </div>
       <div
+        role="button"
+        tabIndex={0}
         className={classNames(
           task.type === constants.daily ? 'bg-sky-600' : null,
           task.type === constants.weekly ? 'bg-violet-600' : null,

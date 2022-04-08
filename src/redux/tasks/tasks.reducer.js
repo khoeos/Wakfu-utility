@@ -1,26 +1,7 @@
-// import { daily, weekly, monthly } from '../../data/tasks'
 import TaskActionTypes from './tasks.type'
 import task from './tasks.data'
 import { getChilds, getChildsIds } from './tasks.selector'
-import {
-  checkToUpdate,
-  isDateToday,
-  isThisMonth,
-  isThisWeek,
-} from './tasks.utils'
-
-// const initialState = {
-//   daily: { ...daily, custom: [] },
-//   weekly: { ...weekly, custom: [] },
-//   monthly: { ...monthly, custom: [] },
-// }
-
-function partition(array, filter) {
-  const pass = []
-  const fail = []
-  array.forEach((e, idx, arr) => (filter(e, idx, arr) ? pass : fail).push(e))
-  return [pass, fail]
-}
+import { checkToUpdate } from './tasks.utils'
 
 const TaskReducer = (state = task, action) => {
   switch (action.type) {
@@ -47,6 +28,15 @@ const TaskReducer = (state = task, action) => {
         ),
       ]
 
+    case '@test':
+      return [
+        ...state.map(item =>
+          item.id === 'DAILY_BASE-1'
+            ? { ...item, lastUpdated: 1649350811000 }
+            : item
+        ),
+      ]
+
     case TaskActionTypes.toggleTask:
       return [
         ...state.map(item =>
@@ -59,8 +49,10 @@ const TaskReducer = (state = task, action) => {
             : item
         ),
       ]
-    default:
+    case TaskActionTypes.checkUpdate:
       return checkToUpdate(state)
+    default:
+      return state
   }
 }
 

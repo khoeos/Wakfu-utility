@@ -13,16 +13,16 @@ const persistConfig = {
   storage,
 }
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
-
-// export const store = createStore(
-//   persistedReducer,
-//   composeEnhancers(applyMiddleware(logger))
-// )
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = createStore(
-  rootReducer,
+  persistedReducer,
   composeEnhancers(applyMiddleware(logger))
 )
+
+// export const store = createStore(
+//   rootReducer,
+//   composeEnhancers(applyMiddleware(logger))
+// )
 
 export const persistor = persistStore(store)

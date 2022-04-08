@@ -1,9 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/outline'
 import { connect } from 'react-redux'
-import { categories } from '../../redux/tasks/task.constants'
 import { toggleVisibility } from '../../redux/tasks/tasks.actions'
 import ModalTaskItem from './ModalTaskItem'
 

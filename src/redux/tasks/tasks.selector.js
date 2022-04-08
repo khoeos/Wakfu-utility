@@ -1,6 +1,5 @@
 /* eslint-disable no-prototype-builtins */
 import constants from './task.constants'
-import task from './tasks.data'
 
 export const dailyTasks = (store, showCategory = true, completed = false) => {
   console.log()
@@ -17,7 +16,6 @@ export const dailyTasks = (store, showCategory = true, completed = false) => {
 }
 
 export const weeklyTasks = (store, showCategory = true, completed = false) => {
-  console.log()
   let tasks = store.tasks.filter(task => task.type === constants.weekly)
 
   if (completed) {
@@ -32,11 +30,16 @@ export const weeklyTasks = (store, showCategory = true, completed = false) => {
 }
 
 export const monthlyTasks = (store, showCategory = true, completed = false) => {
-  console.log()
-  const tasks = store.tasks.filter(task => task.type === constants.monthly)
+  let tasks = store.tasks.filter(task => task.type === constants.monthly)
+
   if (completed) {
-    return tasks.filter(task => task.completed === true)
+    tasks = tasks.filter(task => task.completed === true)
   }
+
+  if (!showCategory) {
+    tasks = tasks.filter(task => task.hasOwnProperty('completed'))
+  }
+
   return tasks
 }
 

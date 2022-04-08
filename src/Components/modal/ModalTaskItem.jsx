@@ -4,15 +4,18 @@ import { toggleVisibility } from '../../redux/tasks/tasks.actions'
 
 function ModalTaskItem({ task, toggleVisibility }) {
   return (
-    <div className={'flex items-center gap-1'}>
+    <label
+      onClick={() => toggleVisibility(task.id)}
+      className="flex items-center gap-1"
+    >
       <input
         type="checkbox"
         className={'h-4 w-4 rounded'}
         checked={task.visible}
         onChange={() => toggleVisibility(task.id)}
       />
-      <label>{task.name}</label>
-    </div>
+      {task.name}
+    </label>
   )
 }
 

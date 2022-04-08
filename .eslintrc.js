@@ -22,7 +22,7 @@ module.exports = {
     'no-multiple-empty-lines': 'off',
     'no-case-declarations': 'off',
     'linebreak-style': 'off',
-    'max-len': ['warn', { code: 120 }],
+    'max-len': 'off',
     'global-require': 'warn',
     'no-alert': 'off',
     'no-unused-vars': 'warn',

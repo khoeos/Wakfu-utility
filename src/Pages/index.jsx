@@ -1,8 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import { connect } from 'react-redux'
-import { dailyTasks } from '../redux/tasks/tasks.selector'
 
-function Index({ dailyTask }) {
+export default function Index() {
   return (
     <div className={'min-h-screen  bg-sky-900 px-16 py-8 text-sky-100'}>
       <div className={'space-y-6'}>
@@ -48,6 +47,25 @@ function Index({ dailyTask }) {
         </div>
       </div>
 
+      <div className={'mt-4'}>
+        <h2 className={'font-gray-100 mb-2 text-2xl font-semibold'}>Todo :</h2>
+        <ul className={'flex flex-col gap-2 md:grid md:grid-cols-3'}>
+          <li>- Catégories personalisées</li>
+          <li>- Ajouter des taches par défaut</li>
+          <li>- Ajout du bonus de l'almanax</li>
+          <li>- Ajout du nom du boss mod'ule</li>
+          <li>- Ajout d'une zone de note</li>
+          <li>- Personalisation des couleurs</li>
+          <li>- Liaison à une base de donnée</li>
+          <li>- Partage de taches</li>
+          <li>- Optimisation de l'application</li>
+          <li className={'col-span-3'}>
+            - Ajouter plein de fonctionnalités (les idées viendrons ! Mais je
+            compte sur les utilisateurs !)
+          </li>
+        </ul>
+      </div>
+
       <div className={'mt-16 text-sky-200'}>
         <p>
           Comme indiqué en bannière lors de votre première visite, la version
@@ -79,9 +97,3 @@ function Index({ dailyTask }) {
     </div>
   )
 }
-
-const mapStateToProps = state => ({
-  dailyTask: dailyTasks(state),
-})
-
-export default connect(mapStateToProps)(Index)

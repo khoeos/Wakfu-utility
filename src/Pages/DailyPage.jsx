@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import TaskItem from '../Components/tasks/TaskItem'
@@ -8,7 +8,7 @@ import TaskList from '../Components/tasks/TaskList'
 import TaskGroup from '../Components/tasks/TaskGroup'
 import { dailyTasks } from '../redux/tasks/tasks.selector'
 import constants, { categories } from '../redux/tasks/task.constants'
-import { checkToUpdate, regroupChild } from '../redux/tasks/tasks.utils'
+import { regroupChild } from '../redux/tasks/tasks.utils'
 
 function DailyPage({ dailyTask }) {
   const baseTasks = dailyTask.filter(
@@ -21,11 +21,10 @@ function DailyPage({ dailyTask }) {
   const customTasks = dailyTask.filter(
     task => task.category === categories.daily.custom
   )
-  useEffect(() => checkToUpdate(dailyTask))
 
   return (
     <div className={'min-h-screen bg-sky-900'}>
-      <div className={'grid grid-cols-2 gap-8 p-4'}>
+      <div className={'flex flex flex-col gap-8 p-4 md:grid md:grid-cols-2 '}>
         <TaskList
           name={'Taches de base'}
           cols={1}
