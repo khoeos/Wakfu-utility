@@ -20,6 +20,24 @@ export default function Index() {
           </p>
         </div>
 
+        <div className={'mt-4 space-y-1 italic text-white'}>
+          <p>
+            Si les donnés de l'application sont mises à jour (nouvelles taches
+            par exemple), à l'heure actuelle, votre application ne recevra pas
+            les nouvelles données, pour le faire vous devrez Réinitialiser
+            manuellement vos données via le bouton tout en bas.
+          </p>
+          <p>
+            J'essayerai d'installer une pop-up qui gèrera l'annonce, mais en
+            attendant vous pouvez regarder tout en bas la version, si le 2e
+            chiffre change, les données auront été mises à jour.
+          </p>
+          <p>
+            Dernière mises à jours des données :{' '}
+            <strong className={'font-semibold'}>09/04/2022</strong>
+          </p>
+        </div>
+
         <div className={'space-y-1'}>
           <p>
             À l'heure actuelle vous ne trouverez qu'un outil de gestion des
@@ -47,7 +65,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div className={'mt-4'}>
+      <div className={'mt-6'}>
         <h2 className={'font-gray-100 mb-2 text-2xl font-semibold'}>Todo :</h2>
         <ul className={'flex flex-col gap-2 md:grid md:grid-cols-3'}>
           <li>- Catégories personalisées</li>
