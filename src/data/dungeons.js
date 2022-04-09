@@ -77,7 +77,6 @@ DungeonData.Dungeons = {
   156: [
     'Fabrique méka',
     'E-bou',
-    'Plateau des haut-vents',
     'Repaire de Kali',
     'Riktus Elite',
     "Roub'Bar",
@@ -85,7 +84,6 @@ DungeonData.Dungeons = {
     'La patapoutrerie',
   ],
   171: [
-    'Cime du grand totem',
     'Crocodailles',
     'Kannivores',
     'Kannibouls',
@@ -110,6 +108,8 @@ DungeonData.bu = {
   81: ['Antre du meulou'],
   96: ['Antre du Corbeau Noir', 'Antre du boufrog'],
   111: ['Antre du Dragon-Cochon'],
+  156: ['Plateau des haut-vents'],
+  171: ['Cime du grand totem'],
   186: ["Nogord l'ezarélé", 'Pointe du mont Zinit'],
   200: ["Dimension-objet d'ombrage"],
   216: ['Palais de Rushu'],
