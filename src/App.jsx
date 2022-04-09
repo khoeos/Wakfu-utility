@@ -11,6 +11,8 @@ import DailyPage from './Pages/DailyPage'
 import { checkUpdate } from './redux/tasks/tasks.actions'
 import Modal from './Components/modal/Modal'
 
+const version = '1.0.4'
+
 function App({ checkUpdate, storage, closeBanner }) {
   useEffect(() => checkUpdate())
   return (
@@ -63,7 +65,7 @@ function App({ checkUpdate, storage, closeBanner }) {
       <div
         className={'flex justify-center bg-gray-900 py-0.5 text-xs text-white'}
       >
-        <span className={'opacity-20'}>V.1.0.3 - by Khoéos</span>
+        <span className={'opacity-20'}>V.{version} - by Khoéos</span>
       </div>
       <Modal />
     </Router>

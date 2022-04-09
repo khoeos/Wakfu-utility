@@ -153,6 +153,24 @@ let daily = [
     completed: false,
     lastUpdated: null,
   },
+  {
+    type: constants.daily,
+    category: categories.daily.base,
+    id: `${categories.daily.base}-8`,
+    name: `Tourmenteur`,
+    visible: true,
+    completed: false,
+    lastUpdated: null,
+  },
+  {
+    type: constants.daily,
+    category: categories.daily.base,
+    id: `${categories.daily.base}-9`,
+    name: `Mihmol`,
+    visible: true,
+    completed: false,
+    lastUpdated: null,
+  },
 ]
 daily = daily.concat(dailyHunter())
 
